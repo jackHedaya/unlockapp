@@ -43,9 +43,9 @@ if CommandLine.arguments.count == 1
         let task = Process()
         
         var appName = String(arguments[1].split(separator: "/").last!)
-        let index = appName.index(appName.startIndex, offsetBy: appName.count - 4)
+        let index = appName.index(appName.startIndex, offsetBy: appName.count - 5)
         
-        appName = appName.substring( to: index)
+        appName = String(appName[...index])
         
         task.launchPath = "/bin/mv"
         task.arguments = ["/usr/local/bin/lckapps/\(appName)", "\(arguments[1])Contents/MacOS/\(appName)"]
